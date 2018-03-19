@@ -1,0 +1,4 @@
+DataSet;FieldName;PrivacyAttribute;AnonymizationTechnique;Details
+exemplo_ds.csv;Name;IDENTIFIER;SUPPRESSION;*
+exemplo_ds.csv;ZipCode;QUASI_IDENTIFIER;GENERALIZATION;{"generalization_type": "truncate", "length": "-2"}
+exemplo_ds.csv;email;IDENTIFIER;GENERALIZATION;{"generalization_type": "truncate", "length": "3"}

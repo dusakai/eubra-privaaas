@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ super()}} - index{% endblock %}
+
+{% block content %}
+
+      <div style="background:#edf9f6 !important" class="jumbotron">
+        <h2><b>PrivaaaS Download<b></h2>
+        <h3>Anonymized datasets for download</h3>
+      </div>
+        {% if files_sended and files_sended != ['.gitignore'] %}
+          <div class="row paddingtop">
+
+                <div class="table-responsive">
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                            <th>DataPolicy</th>
+                      </tr>
+                    </thead>
+                    {% for file in files_sended %}
+
+                    <tbody>
+                      <tr>
+                        {% if file != '.gitignore' %}
+
+                            <td><li><a href="{{ url_for('static',
+                                filename='up_dir/output/ds_files/')}}{{ file }}" meta http-equiv="refresh">{{ file }}</a></li></td>
+                                <!-- <td name="file_ds" class="btn btn-default btn-danger glyphicon glyphicon-remove" type=submit></td> -->
+                        {% endif %}
+                      </tr>
+                    </tbody>
+                    {% endfor %}
+                  </table>
+                </div>
+              </div>
+
+          <div class="row padding30">
+              <form method=post enctype=multipart/form-data>
+                <div class="form-group">
+                  <div class="col-md-9">
+
+                  <select class="selectpicker form-control" name="del_list" id="del_list">
+                    <option selected disabled>Select datadset for deleting</option>
+                    {% for file in files_sended %}
+                      {% if file != '.gitignore' %}
+                      <option value={{ file }}>{{ file }}</option>
+                      {% endif %}
+                    {% endfor %}
+                  </select>
+                </div>
+                  <div class="col-md-3">
+                    <div class="col-md-1 col-md-offset-5">
+                      <button class="btn btn-lg btn-danger" name='delete' id='delete'>Delete</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+{% endif %}
+{% endblock %}

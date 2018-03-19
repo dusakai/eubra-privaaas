@@ -1,0 +1,157 @@
+<AnonymizationOntology>
+	<AnonymizationStrategy name="SafeHarborMethod">
+		<Institution>HIPAA</Institution>
+		<Rules>
+			<Rule name="SafeHarborMethod-A">
+				<FieldTable>Name</FieldTable>
+				<FieldTableType>String</FieldTableType>
+				<FieldTableClassification>KeyAttribute</FieldTableClassification>
+				<Technique>Suppression</Technique>
+				<Hierarchy>*</Hierarchy>
+			</Rule>
+			<Rule name="SafeHarborMethod-B">
+				<FieldTable>BirthDate</FieldTable>
+				<FieldTableType>Date</FieldTableType>
+				<FieldTableClassification>QuasiIdentifier</FieldTableClassification>
+				<Technique>Generalization</Technique>
+				<Hierarchy>{"generalization_type": "truncate", "length": "4"}</Hierarchy>
+			</Rule>
+			<Rule name="SafeHarborMethod-C">
+				<FieldTable>MothersName</FieldTable>
+				<FieldTableType>String</FieldTableType>
+				<FieldTableClassification>KeyAttribute</FieldTableClassification>
+				<Technique>Suppression</Technique>
+				<Hierarchy>*</Hierarchy>
+			</Rule>
+			<Rule name="SafeHarborMethod-D">
+				<FieldTable>IDDocument</FieldTable>
+				<FieldTableType>String</FieldTableType>
+				<FieldTableClassification>KeyAttribute</FieldTableClassification>
+				<Technique>Suppression</Technique>
+				<Hierarchy>*</Hierarchy>
+			</Rule>
+			<Rule name="SafeHarborMethod-E">
+				<FieldTable>FiscalID</FieldTable>
+				<FieldTableType>String</FieldTableType>
+				<FieldTableClassification>KeyAttribute</FieldTableClassification>
+				<Technique>Suppression</Technique>
+				<Hierarchy>*</Hierarchy>
+			</Rule>
+			<Rule name="SafeHarborMethod-F">
+				<FieldTable>Address</FieldTable>
+				<FieldTableType>String</FieldTableType>
+				<FieldTableClassification>QuasiIdentifier</FieldTableClassification>
+				<Technique>Suppression</Technique>
+				<Hierarchy>*</Hierarchy>
+			</Rule>
+			<Rule name="SafeHarborMethod-G">
+				<FieldTable>City</FieldTable>
+				<FieldTableType>String</FieldTableType>
+				<FieldTableClassification>QuasiIdentifier</FieldTableClassification>
+				<Technique>Suppression</Technique>
+				<Hierarchy>*</Hierarchy>
+			</Rule>
+			<Rule name="SafeHarborMethod-H">
+				<FieldTable>State</FieldTable>
+				<FieldTableType>String</FieldTableType>
+				<FieldTableClassification>NonSensitive</FieldTableClassification>
+				<Technique>NoTechnique</Technique>
+				<Hierarchy></Hierarchy>
+			</Rule>
+			<Rule name="SafeHarborMethod-I">
+				<FieldTable>Country</FieldTable>
+				<FieldTableType>String</FieldTableType>
+				<FieldTableClassification>NonSensitive</FieldTableClassification>
+				<Technique>NoTechnique</Technique>
+				<Hierarchy></Hierarchy>
+			</Rule>
+			<Rule name="SafeHarborMethod-J">
+				<FieldTable>PostalCode</FieldTable>
+				<FieldTableType>String</FieldTableType>
+				<FieldTableClassification>QuasiIdentifier</FieldTableClassification>
+				<Technique>Generalization</Technique>
+				<Hierarchy>{"generalization_type": "truncate", "length": "2"}</Hierarchy>
+			</Rule>
+			<Rule name="SafeHarborMethod-K">
+				<FieldTable>TelephoneNumber</FieldTable>
+				<FieldTableType>String</FieldTableType>
+				<FieldTableClassification>QuasiIdentifier</FieldTableClassification>
+				<Technique>Suppression</Technique>
+				<Hierarchy>*</Hierarchy>
+			</Rule>
+			<Rule name="SafeHarborMethod-L">
+				<FieldTable>LicenseNumber</FieldTable>
+				<FieldTableType>String</FieldTableType>
+				<FieldTableClassification>KeyAttribute</FieldTableClassification>
+				<Technique>Suppression</Technique>
+				<Hierarchy>*</Hierarchy>
+			</Rule>
+			<Rule name="SafeHarborMethod-M">
+				<FieldTable>Vehicle</FieldTable>
+				<FieldTableType>String</FieldTableType>
+				<FieldTableClassification>QuasiIdentifier</FieldTableClassification>
+				<Technique>Suppression</Technique>
+				<Hierarchy>*</Hierarchy>
+			</Rule>
+			<Rule name="SafeHarborMethod-N">
+				<FieldTable>FaxNumber</FieldTable>
+				<FieldTableType>String</FieldTableType>
+				<FieldTableClassification>QuasiIdentifier</FieldTableClassification>
+				<Technique>Suppression</Technique>
+				<Hierarchy>*</Hierarchy>
+			</Rule>
+			<Rule name="SafeHarborMethod-O">
+				<FieldTable>Email</FieldTable>
+				<FieldTableType>String</FieldTableType>
+				<FieldTableClassification>KeyAttribute</FieldTableClassification>
+				<Technique>Suppression</Technique>
+				<Hierarchy>*</Hierarchy>
+			</Rule>
+			<Rule name="SafeHarborMethod-P">
+				<FieldTable>BiometricIdentification</FieldTable>
+				<FieldTableType>String</FieldTableType>
+				<FieldTableClassification>KeyAttribute</FieldTableClassification>
+				<Technique>Suppression</Technique>
+				<Hierarchy>*</Hierarchy>
+			</Rule>
+			<Rule name="SafeHarborMethod-Q">
+				<FieldTable>Photo</FieldTable>
+				<FieldTableType>String</FieldTableType>
+				<FieldTableClassification>KeyAttribute</FieldTableClassification>
+				<Technique>Suppression</Technique>
+				<Hierarchy>*</Hierarchy>
+			</Rule>
+			<Rule name="SafeHarborMethod-R">
+				<FieldTable>Occupation</FieldTable>
+				<FieldTableType>String</FieldTableType>
+				<FieldTableClassification>QuasiIdentifier</FieldTableClassification>
+				<Technique>NoTechnique</Technique>
+				<Hierarchy></Hierarchy>
+			</Rule>
+			<Rule name="SafeHarborMethod-S">
+				<FieldTable>CompanyName</FieldTable>
+				<FieldTableType>String</FieldTableType>
+				<FieldTableClassification>QuasiIdentifier</FieldTableClassification>
+				<Technique>Suppression</Technique>
+				<Hierarchy>*</Hierarchy>
+			</Rule>
+			<Rule name="SafeHarborMethod-T">
+				<FieldTable>CompanyAddress</FieldTable>
+				<FieldTableType>String</FieldTableType>
+				<FieldTableClassification>QuasiIdentifier</FieldTableClassification>
+				<Technique>Suppression</Technique>
+				<Hierarchy>*</Hierarchy>
+			</Rule>
+			<Rule name="SafeHarborMethod-U">
+				<FieldTable>ProfessionalTelephone</FieldTable>
+				<FieldTableType>String</FieldTableType>
+				<FieldTableClassification>QuasiIdentifier</FieldTableClassification>
+				<Technique>Suppression</Technique>
+				<Hierarchy>*</Hierarchy>
+			</Rule>
+		</Rules>
+	</AnonymizationStrategy>
+	
+	
+	
+</AnonymizationOntology>

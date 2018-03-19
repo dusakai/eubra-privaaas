@@ -1,0 +1,4 @@
+DataSet;FieldName;PrivacyAttribute;AnonymizationTechnique;Details
+blueData.csv;Name;IDENTIFIER;SUPPRESSION;o.O
+blueData.csv;Email;IDENTIFIER;SUPPRESSION;O.o
+blueData.csv;SoccerTeam;QUASI_IDENTIFIER;GENERALIZATION;{"generalization_type": "rangeStringToString", "hierarchy": ["São Paulo=Palmeiras-Corinthians-São Paulo-Santos", "Rio de Janeiro=Flamengo-Vasco-Fluminense-Botafogo", "Rio Grande do Sul=Grêmio-Internacional", "Minas Gerais=Cruzeiro-Atlético", "Bahia=Bahia"]}

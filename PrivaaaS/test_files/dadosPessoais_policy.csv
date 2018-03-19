@@ -1,0 +1,6 @@
+DataSet;FieldName;PrivacyAttribute;AnonymizationTechnique;Details
+dadosPessoais.csv;Name;IDENTIFIER;GENERALIZATION;{"generalization_type": "truncate", "length": "1"}
+dadosPessoais.csv;PostalCode;QUASI_IDENTIFIER;GENERALIZATION;{"generalization_type": "truncate", "length": "3"}
+dadosPessoais.csv;Email;IDENTIFIER;MASK;{"lang":"pt_BR", "label_type":"email"}
+dadosPessoais.csv;IDDocument;IDENTIFIER;ENCRYPTION;md5
+dadosPessoais.csv;Salary;SENSITIVE;GENERALIZATION;{"generalization_type": "rangeNumberToString", "hierarchy": ["Low=0-100", "Medium=100.01-500", "High=500.01-"]}

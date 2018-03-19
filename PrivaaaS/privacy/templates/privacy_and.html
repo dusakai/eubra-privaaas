@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div style="background:#edf9f6 !important" class="jumbotron">
+    <h2><b>PrivaaaS Conjunction</b></h2>
+    <h3>Applying the conjunction rule.</h3>
+  </div>
+    {{ final_AND.csrf_token }}
+  <div class="row">
+    {% if final_AND %}
+    <h3>Privacy policy genereted</h3>
+    <div class="table-responsive">
+        <table class="table table-hover">
+        <tr>
+          {% for key in final_AND[0] %}
+                  <th> {{ key }} </th>
+          {% endfor %}
+        </tr>
+        {% for dict_item in final_AND %}
+        <tr>
+        {% for value in dict_item.values() %}
+             <td> {{ value }} </td>
+        {% endfor %}
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+    </div>
+    <div class="col-md-4">
+    <form method=post enctype=multipart/form-data>
+      <div class="col-md-6 padding30">
+        <div class="form" name="privacy_and" id="privacy_and">
+          <input data-toggle="tooltip" title="Hide the game!" class="btn btn-lg btn-success" type=submit name=btn_conjuction_send value=Anonymize></p>
+          <!-- <p><a class="btn btn-lg btn-success" role="button">Send</a></p> -->
+      </div>
+    </form>
+  </div>
+  </div>
+  </div>
+  {% endif %}
+  <div class="container">
+        {{ code.csrf_token }}
+        {{ coll_name.csrf_token }}
+        <div class="row">
+          <div class="table-responsive">
+            {% if coll_name %}
+            <h3>Anonymized fieldname</h3>
+          {% for i in coll_name %}
+            <div class="col-md-3 paddingtop">
+              <h4>"{{ i }}"</h4>
+            </div>
+          {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+        <div class="row">
+          <div class="container">
+            <div class="table-responsive">
+              {% for code_i,ds_name in code %}
+              <div class="row padding30">
+                <h3>Dataset: {{ ds_name }}</h3>
+              </div>
+              <table class="table table-hover">
+                {% if code_i %}
+                <tr>
+                  {% for key in code_i[0] %}
+                          <th> {{ key }} </th>
+                  {% endfor %}
+                </tr>
+                {% endif %}
+                {% for dict_item in code_i %}
+                <tr>
+                {% for value in dict_item.values() %}
+                     <td> {{ value }} </td>
+                {% endfor %}
+                </tr>
+                {% endfor %}
+              </table>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+    </div>
+  {% endblock %}

@@ -1,0 +1,23 @@
+[
+   {
+     "DataSet":"mock_data.json",
+     "FieldName":"Name",
+     "PrivacyAttribute":"IDENTIFIER",
+     "AnonymizationTechnique":"MASK",
+     "Details":{"lang":"en", "label_type":"name"}
+   },
+   {
+     "DataSet":"mock_data.json",
+     "FieldName":"email",
+     "PrivacyAttribute":"QUASI_IDENTIFIER",
+     "AnonymizationTechnique":"GENERALIZATION",
+     "Details":{"generalization_type": "truncate", "length": "1"}
+   },
+   {
+     "DataSet":"mock_data.json",
+     "FieldName":"last_name",
+     "PrivacyAttribute":"IDENTIFIER",
+     "AnonymizationTechnique":"ENCRYPTION",
+     "Details":"md5"
+   }
+]

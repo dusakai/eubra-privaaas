@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ super()}} - index{% endblock %}
+
+{% block content %}
+      <div style="background:#edf9f6 !important" class="jumbotron">
+        <h2><b>Privacy policy</b></h2>
+        <h3>Upload new privacy policy file</h3>
+        <div class="row padding30">
+          <form name="datasets_list" method=post enctype=multipart/form-data>
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="form-group alignleft">
+                    <label for="exampleInputFile">File input</label>
+                    <input type="file" class="form-control-file" name="file_policy" id="file_policy" aria-describedby="fileHelp">
+                    <small id="fileHelp" class="form-text text-muted paddingtop5">Select a file containing as privacy policies.</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row paddingtop">
+                <div class="col-md-8">
+                  <div class="form-group">
+                      <select class="selectpicker form-control" name="datasets_list" id="datasets_list">
+                        <option selected disabled>Select datadset</option>
+                        {% for i,_ in ds_list %}
+                          <option value={{ i }}>{{ i }}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="checkbox">
+                    <label data-toggle="tooltip" title="Global privacy policy is applied to all datasets!"><input name="global_policy" id="global_policy" type="checkbox" value="True">Global Policy</label>
+                  </div>
+                </div>
+            </div>
+            <div class="row paddingtop">
+              <input class="btn btn-lg btn-default"  name=btn_send_policy type="submit" value="Upload">
+            </div>
+          </form>
+        </div>
+      </div>
+
+      {% if items %}
+      <div class="row">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                    <th>DataPolicy</th>
+                    <th>DataSet</th>
+                    <th>Created at</th>
+              </tr>
+            </thead>
+            {% for i,j,k in items %}
+            <tbody>
+              <tr>
+                    <td>{{ i }}</td>
+                    <td>{{ k }}</td>
+                    <td>{{ j }}</td>
+            </tr>
+            </tbody>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+
+        <div class="row padding30">
+            <form name="del_list"  method=post enctype=multipart/form-data>
+              <div class="form-group">
+                <div class="col-md-10">
+                <select class="selectpicker form-control" name="del_list" id="del_list">
+                  <option selected disabled>Select datadset for deleting</option>
+                  {% for j,_ in p_list %}
+                    <option value={{ j }}>{{ j }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+                <div class="col-md-2">
+                  <div class="col-md-1 col-md-offset-1">
+                    <!-- <input type="form" class="form-control-file" name="del_list" id="del_list" aria-describedby="fileHelp"> -->
+                    <button type="submit" class="btn btn-lg btn-danger" name='delete' id='delete'>Delete</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="row padding30">
+          </div>
+          {% endif %}
+
+{% endblock %}

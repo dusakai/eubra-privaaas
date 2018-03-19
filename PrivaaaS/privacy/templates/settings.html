@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ super()}} - index{% endblock %}
+
+{% block content %}
+
+      <div  style="background:#edf9f6 !important"  class="jumbotron">
+        <h2><b>Privacy policy settings<b></h2>
+        <h3>Change the field name to prepare for anonymization.</h3>
+      </div>
+      {{ settings_table.csrf_token }}
+      {% if settings_table %}
+      <div class="row">
+        <form method=post enctype=multipart/form-data>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                      <th>Field name</th>
+                      <th>Anonymization technique</th>
+                      <th>Hierarchy</th>
+                      <th>Data set</th>
+                      <th>Data policy</th>
+                      <th>Action</th>
+                </tr>
+              </thead>
+              {% for i,j,k,l,m,n in settings_table %}
+              <tbody>
+                <tr>
+                      {% if n == "GlobalPolicy" %}
+                        <td>{{ i }}</td>
+                      {% else %}
+                        <td><input type="text" name={{ l }} value={{ i }}></td>
+                      {% endif %}
+                      <!-- <td>{{ i }}</td> -->
+                      <td>{{ j }}</td>
+                      <td>{{ k }}</td>
+                      <td>{{ m }}</td>
+                      <td>{{ n }}</td>
+                      {% if n == "GlobalPolicy" %}
+                        <td></td>
+                      {% else %}
+                      <td>
+                        <button type="submit" class="btn btn-default btn-warning glyphicon glyphicon-edit" name="edit_att" id="edit_att" value="{{ l }}">
+                        </button>
+                        <!-- <button type="submit" class="btn btn-default btn-warning glyphicon glyphicon-edit">
+                        </button> -->
+                      </td>
+                      {% endif %}
+                </tr>
+              </tbody>
+              {% endfor %}
+            </table>
+          </div>
+        </form>
+      </div>
+    <div class="row padding30">
+    </div>
+    {% endif %}
+{% endblock %}

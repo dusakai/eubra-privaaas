@@ -1,0 +1,4 @@
+DataSet;FieldName;PrivacyAttribute;AnonymizationTechnique;Details
+greenData.csv;Name;IDENTIFIER;GENERALIZATION;{"generalization_type": "truncate", "length": "2"}
+greenData.csv;Email;IDENTIFIER;SUPPRESSION;O.o
+greenData.csv;Age;QUASI_IDENTIFIER;GENERALIZATION;{"generalization_type": "rangeNumberToString", "hierarchy": ["Crianca=0-12", "Adolescente=13-19", "Adulto=20-60", "Idoso=60-"]}

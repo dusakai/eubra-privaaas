@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ super()}} - index{% endblock %}
+
+{% block content %}
+
+      <div style="background:#edf9f6 !important" class="jumbotron">
+        {% if post_view %}
+        <h2><b>PrivaaaS Risk</b></h2>
+        <h3>Re-identification risk</h3>
+        <h4 style="color:#337ab7;"><b>K-anonymity applied! See below the details!</b></h4>
+        {% else %}
+        <h2><b>PrivaaaS Risk</b></h2>
+        <h3>Re-identification risk</h3>
+        <h4>Apply the k-anonymity algorithm. Select the <b data-toggle="tooltip" title="Risk threshold policy for using the arx library.">risk configuration file</b> and associate it with a anonymized dataset.</h4>
+        {% endif %}
+
+        <div class="row padding30">
+          <form method=post enctype=multipart/form-data>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group alignleft">
+                <label for="exampleInputFile">Risk config input</label>
+                <input type="file" class="form-control-file" name="file_hrisk" id="file_hrisk" aria-describedby="fileHelp">
+                <small id="fileHelp" class="form-text text-muted paddingtop5">Select a risk configuration file.</small>
+              </div>
+            </div>
+          </div>
+          <div class="row padding30">
+            <select class="selectpicker form-control" name="select_anonymized_dataset" id="select_anonymized_dataset">
+                <option selected disabled>Select the dataset for the risk configuration file.</option>
+                {% for file in files_sended %}
+                  {% if file.endswith('csv') %}
+                  <option value={{ file }}><a href="{{ url_for('static',
+                    filename='up_dir/input/h_risk/')}}{{ file }}" meta http-equiv="refresh">{{ file }}</a></option>
+                  {% endif %}
+                {% endfor %}
+            </select>
+          </div>
+          <div class="row paddingtop">
+            <input class="btn btn-lg btn-success" type="submit" name="btn_kanonymity_send" value="k-anonymity">
+          </div>
+        </form>
+        </div>
+      </div>
+      {% if post_view %}
+        <div class="row padding30">
+          <div class="col-md-6 col-md-offset-3">
+          {% for line in post_view %}
+            <p>{{ line }}</p>
+          {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+          {% if files_genereted and files_genereted != ['.gitignore'] %}
+            <div class="row">
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                          <th>Anonymized Dataset with arx k-anonymity</th>
+                    </tr>
+                  </thead>
+                  {% for file_g in files_genereted %}
+                  <tbody>
+                    <tr>
+                      {% if file_g != '.gitignore' %}
+                          <td><li><a href="{{ url_for('static',
+                              filename='up_dir/output/h_risk/')}}{{ file_g }}" meta http-equiv="refresh">{{ file_g }}</a></li></td>
+                              <!-- <td name="file_ds" class="btn btn-default btn-danger glyphicon glyphicon-remove" type=submit></td> -->
+                      {% endif %}
+                    </tr>
+                  </tbody>
+                  {% endfor %}
+                </table>
+              </div>
+            </div>
+
+            <div class="row padding30">
+                <form method=post enctype=multipart/form-data>
+                  <div class="form-group">
+                    <div class="col-md-9">
+
+                    <select class="selectpicker form-control" name="del_list" id="del_list">
+                      <option selected disabled>Select datadset for deleting</option>
+                      {% for file_g in files_genereted %}
+                        {% if file_g != '.gitignore' %}
+                        <option value={{ file_g }}>{{ file_g }}</option>
+                        {% endif %}
+                      {% endfor %}
+                    </select>
+                  </div>
+                    <div class="col-md-3">
+                      <div class="col-md-1 col-md-offset-5">
+                        <button class="btn btn-lg btn-danger" name='delete' id='delete'>Delete</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+
+              {% endif %}
+
+
+{% endblock %}

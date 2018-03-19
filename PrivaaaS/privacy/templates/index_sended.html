@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ super()}} - index{% endblock %}
+
+{% block content %}
+
+      <div  style="background:#edf9f6 !important" class="jumbotron">
+        <h2><b>Dataset</b></h2>
+        <h3>Upload a new dataset to anonymization! ;)</h3>
+        <h4 style="color:#337ab7;"><b>File uploaded successfully!</b></h4>
+        <div class="row padding30">
+          <form method=post enctype=multipart/form-data>
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="form-group alignleft">
+                    <label for="exampleInputFile">File input</label>
+                    <input type="file" class="form-control-file" name="file_dataset" id="file_dataset" aria-describedby="fileHelp">
+                    <small id="fileHelp" class="form-text text-muted paddingtop5">Select a file containing as data set.</small>
+                  </div>
+                </div>
+              </div>
+              <div class="row paddingtop">
+                <input class="btn btn-lg btn-default" name=btn_send_dataset type=submit value=Upload>
+              </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>DataSet name</th>
+                <th>Created at</th>
+              </tr>
+            </thead>
+            {% for i,j in items %}
+            <tbody>
+              <tr>
+                <td>{{ i }}</td>
+                <td>{{ j }}</td>
+              </tr>
+            </tbody>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+      <div class="row padding30">
+          <form method=post enctype=multipart/form-data>
+            <div class="form-group">
+              <div class="col-md-10">
+              <select class="selectpicker form-control" name="del_list" id="del_list">
+                <option selected disabled>Select datadset for deleting</option>
+                {% for i,_ in items %}
+                  <option value={{ i }}>{{ i }}</option>
+                {% endfor %}
+              </select>
+            </div>
+              <div class="col-md-2">
+                <button class="btn btn-lg btn-danger" name='delete' id='delete'>Delete</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="row padding30">
+        </div>
+
+
+  {% endblock %}

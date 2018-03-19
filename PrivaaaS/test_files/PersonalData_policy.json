@@ -1,0 +1,44 @@
+[
+  {
+    "DataSet": "PersonalData.json",
+    "FieldName": "Name",
+    "PrivacyAttribute": "IDENTIFIER",
+    "AnonymizationTechnique": "SUPPRESSION",
+    "Details": "*"
+  },
+  {
+    "DataSet": "PersonalData.json",
+    "FieldName": "ZipCode",
+    "PrivacyAttribute": "QUASI_IDENTIFIER",
+    "AnonymizationTechnique": "GENERALIZATION",
+    "Details": {"generalization_type": "truncate", "length": "3"}
+  },
+  {
+    "DataSet": "PersonalData.json",
+    "FieldName": "Email",
+    "PrivacyAttribute": "IDENTIFIER",
+    "AnonymizationTechnique": "SUPPRESSION",
+    "Details": ":p"
+  },
+  {
+    "DataSet": "PersonalData.json",
+    "FieldName": "CVV",
+    "PrivacyAttribute": "SENSITIVE",
+    "AnonymizationTechnique": "SUPPRESSION",
+    "Details": "CVV"
+  },
+  {
+    "DataSet": "PersonalData.json",
+    "FieldName": "PAN",
+    "PrivacyAttribute": "SENSITIVE",
+    "AnonymizationTechnique": "GENERALIZATION",
+    "Details": {"generalization_type": "truncate", "length": "4"}
+  },
+  {
+    "DataSet": "PersonalData.json",
+    "FieldName": "HoldName",
+    "PrivacyAttribute": "IDENTIFIER",
+    "AnonymizationTechnique": "ENCRYPTION",
+    "Details": "sha1"
+  }
+]
